@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+
+<html lang="RO">
+<head>
+
+<script src="js/jquery.min.js"></script>
+
+    <script>
+    function set_validator_errors(){
+        orderValidator.errorTitle = 'Vă rugăm să corectați următoarele erori'; 
+
+        orderValidator.errorNameField = 'Nume'; 
+        orderValidator.errorNameMess = 'Introdu numele tau'; 
+        
+        orderValidator.errorPhoneField = 'Telefon de contact'; 
+        orderValidator.errorPhoneMess = 'Introduceți numărul de telefon corect'; 
+        
+        orderValidator.errorAddress = 'Introduceți adresa corectă'; 
+        orderValidator.errorRequired = 'câmp necesar'; 
+        orderValidator.errorMaxLength = 'caracter maxim valabil {1}'; 
+        orderValidator.errorMinLength = 'caracter minim valabil {1}'; 
+        orderValidator.errorEmailField = 'E-mail';
+        orderValidator.errorEmail = 'e-mail nevalid specificat';
+        }
+    </script>
+    
+<script>
+
+
+
+    
+    setOffer: function (offerId) {
+        if (offerId == this._setOfferId) {
+            return ;
+        }
+        this._setOfferId = offerId;
+        if (offerId) {
+            var offer = app.offers[offerId];
+            var previousOffer = app.currentOffer;
+            app.currentOffer = offer;
+            var event = this.jq.Event("offerchange");
+            event.previousOffer = previousOffer;
+            event.currentOffer = app.currentOffer;
+            this.jq(document).trigger(event);
+            this.updatePage(offer);
+        } else {
+            $('input[name=country]').val('');
+        }
+    },
+    
+    updatePage: function(offer) {
+        $('x-newprice').html(offer.price);
+        $('x-oldprice').html(offer.price2);
+        $('x-currency').html(offer.currency.name);
+        $('input[name=offer], select[name=offer]').val(offer.id);
+        $('input[name=country]').val(offer.country.code);
+    },
+
+    blockForm: function() {
+        // Блокируем кнопки при отправке формы
+        $('input[type=submit]', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
+        $('button', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
+        app.incompleteOrder.lock = true;
+        clearTimeout(app.incompleteOrder.timer);
+    },
+
+    unblockForm: function() {
+        $('input[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
+        $('button[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
+        app.incompleteOrder.lock = false;
+        clearTimeout(app.incompleteOrder.timer);
+    }
+
+};
+
+
+</script><script src="js/form.validate.js"></script>
+<script src="js/form.incomplete.js"></script>
+<script src="js/main2.js"></script>
+
+
+
+	  <base>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title class="lt1">Un produs eficient pentru hipertensiune! </title>
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/bxslider.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/media.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+
+    <script type="text/javascript" src="js/main.js"></script>
+   
+
+    <script src="js/bxslider.js"></script>
+    <style>
+    .hide , .flag-dropdown {display: none;}
+    .error-box{
+    color: #fff;
+    background-color: #DE5042;
+    border-radius: 5px;
+    text-align: center;
+    width: 240px;
+    font-size: 13px;
+    line-height: 20px;
+    margin:5px auto !important;
+    z-index: 100;
+    width: 100%;
+}
+</style>
+</head>
+<body>
+
+
+<div class="">
+    <header>
+        <div class="content">
+            <div class="logo"><img src="images/lotype.png" alt="" class="logotype"></div>
+            <div class="reclama">
+                <ul class="soft_touch">
+                    <li class="reklama_1">
+						100%                         <br>
+						<span class="lt2">natural</span>
+                    </li>
+                    <li class="reklama_2 lt3">3567 persoane  <br> au comandat deja astăzi</li>
+                </ul>
+            </div>
+            <a class="call call_me button-click dis_dec lt4">Rezervați serviciul de apel  </a>
+            <a class="call call_me scroll_to dis_mob lt5">Rezervați serviciul de apel  </a>
+            <div class="clear"></div>
+        </div>
+    </header>
+    <section>
+        <div class="block_1">
+            <div class="content">
+                <p class="bl1_title">CardioActive  <sup class="head">©  </sup>:
+					<span class="lt6">normalizează tensiunea  <br>arterială și bunăstarea ! </span>
+				</p>
+                <p class="bl1_title_after lt7">Protecție de încredere  <br>împotriva atacului de cord și a infarctului</p>
+                <div class="head_form">
+                    <div class="head_form_1">
+                        <ul class="h_f_ul">
+                            <li class="h_f_li_1 lt8">Normalizează rapid și ușor  <br> tensiunea arterială și ritmul cardiac </li>
+                            <li class="h_f_li_2 lt9">Curăță vasele  <br> de sânge de colesterol, <br> le restabilește tonul și elasticitatea 
+</li>
+                            <li class="h_f_li_3 lt10"> Sigur la orice <br> vârstă, eficient în  <br>  toate etapele hipertensiunii arteriale  </li>
+                        </ul>
+                    </div>
+                    <img src="images/paced.png" alt="" class="paced_form">
+                    <div class="clear dis_mob"></div>
+                    <div class="head_form_2 new_999 new_480">
+                        <div class="form_content_head">
+                            <div class="form_title">
+                                <p class="left_t_f lt11">Numărul de pachete <br>în cel mai apropiat depozit este limitat: </p>
+                                <p class="right_t_f">18 <span class="sht lt12">Bucăți</span></p>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="form_price">
+                                <ul class="price price__ch">
+                                    <li class="price_1">
+										<span class="lt13">Preț </span>
+                                        <br>
+										<span class="lt14">per pachet: </span>
+                                        <br>
+                                        <span class="bold_s_28"><span class="x_price_previous price_old oldPriceAndLabelForLandingInfoApi"><x-oldprice>318</x-oldprice> <x-currency>RON</x-currency></span> </span>
+                                    </li>
+                                    <li class="price_2">
+                                        <span class="lt15">Preț </span>
+                                        <br>
+										<span class="lt16">cu reducere: </span>
+                                        <br>
+                                        <span class="bold_s_28"><span class="x_price_current price_main priceAndLabelForLandingInfoApi"><x-newprice>159</x-newprice> <x-currency>RON</x-currency></span> </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <form action="https://healthbestblog.space/cpatl/api.php" class="x_order_form order_form  form_top clearfix" method="post">
+                                 
+    <select name="offer" class="form-control country_chang" style="display: none;">
+        <option data-country-code="RO" selected="selected" value="21481">
+            Румыния        </option>
+    </select>
+
+                                    <label class="form_container">
+                                    <span class="input_name lt18">Introduceţi numele dvs. </span>
+                                    <i class="icon icon_user"></i>
+                                    <input type="text" name="name" class="input__inner x_client_name" placeholder="Numele " required>
+                                </label>
+                                <label class="form_container">
+                                    <span class="input_name lt19">Introduceţi numărul dvs. de telefon </span>
+                                    <i class="icon icon_phone"></i>
+                                    <input type="tel" name="phone" class="input__inner x_client_phone" placeholder="" required>
+                                </label>
+                                <button type="submit" class="form_btn lt20">Comandă </button>
+                                   <input type="hidden" name="stream_hid" value="oKdUm2m7">
+      <input type="hidden" name="offer_id" value="5196">
+
+      
+      <input type="hidden" name="country" value="RO"> 
+
+      <input type="hidden" name="sid1" value="alex">
+      <input type="hidden" name="sid2" value="alex2">
+      <input type="hidden" name="sid3" value="alex3">
+      <input type="hidden" name="redirect_url" value="https://amazinghealth.github.io/germitox-ita/success/index.html">
+                            </form>
+                            <img src="images/security.png" alt="" class="control">
+                        </div>
+                    </div>
+                    <img src="images/sale.png" alt="" class="sale_240">
+                    <div class="head_form_2 new_999 dis_bl_480">
+                        <div class="form_content_head">
+                            <div class="form_title">
+                                <p class="left_t_f lt11">Numărul de pachete <br>în cel mai apropiat depozit este limitat: </p>
+                                <p class="right_t_f">18 <span class="sht lt12">Bucăți</span></p>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="form_price">
+                                <ul class="price">
+                                    <li class="price_1">
+										<span class="lt13">Preț </span>
+                                        <br>
+										<span class="lt14">per pachet: </span>
+                                        <br>
+                                        <span class="bold_s_28"><span class="x_price_previous price_old oldPriceAndLabelForLandingInfoApi"><x-oldprice>318</x-oldprice> <x-currency>RON</x-currency></span></span>
+                                    </li>
+                                    <li class="price_2">
+										<span class="lt15">Preț </span>
+                                        <br>
+										<span class="lt16">cu reducere: </span>
+                                        <br>
+                                        <span class="bold_s_28"><span class="x_price_current price_main priceAndLabelForLandingInfoApi"><x-newprice>159</x-newprice> <x-currency>RON</x-currency></span></span>
+                                    </li>
+                                </ul>
+                            </div>
+                           <form action="https://healthbestblog.space/cpatl/api.php" class="x_order_form order_form  form_top clearfix" method="post">
+                                 
+    <select name="offer" class="form-control country_chang" style="display: none;">
+        <option data-country-code="RO" selected="selected" value="21481">
+            Румыния        </option>
+    </select>
+
+                                    <label class="form_container">
+                                    <span class="input_name lt18">Introduceţi numele dvs. </span>
+                                    <i class="icon icon_user"></i>
+                                    <input type="text" name="name" class="input__inner x_client_name" placeholder="Numele " required>
+                                </label>
+                                <label class="form_container">
+                                    <span class="input_name lt19">Introduceţi numărul dvs. de telefon </span>
+                                    <i class="icon icon_phone"></i>
+                                    <input type="tel" name="phone" class="input__inner x_client_phone" placeholder="" required>
+                                </label>
+                                <button type="submit" class="form_btn lt20">Comandă </button>
+                                    <input type="hidden" name="stream_hid" value="oKdUm2m7">
+      <input type="hidden" name="offer_id" value="5196">
+
+      
+      <input type="hidden" name="country" value="RO"> 
+
+      <input type="hidden" name="sid1" value="alex">
+      <input type="hidden" name="sid2" value="alex2">
+      <input type="hidden" name="sid3" value="alex3">
+      <input type="hidden" name="redirect_url" value="https://amazinghealth.github.io/germitox-ita/success/index.html">
+                            </form>
+                            <img src="images/security.png" alt="" class="control add_03">
+                            <img src="images/control_form.png" alt="" class="control add_04">
+                        </div>
+                        <img src="images/arrow.png" alt="" class="arrow_form">
+                        <img src="images/pac_form_480.png" alt="" class="pacet_fomr_480">
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="block_2">
+            <div class="content">
+                <div class="bl2_content">
+                    <p class="bl_2_title lt21">Verifică-te! <br>Ai cel puțin unul dintre aceste simptome? </p>
+                    <div class="content_bl2">
+                        <ul class="bl2_content1">
+                            <li class="bl_2_li_content_left_1 pad_240 lt22">Durere  <br>de cap </li>
+                            <li class="bl_2_li_content_left_2 pad_240 lt23">Pete negre <br>în faţa ochilor </li>
+                            <li class="bl_2_li_content_left_3 lt24">Apatie, <br>nervozitate, <br>somnolenţă </li>
+                            <li class="bl_2_li_content_left_4 pad_240 lt25">Vedere <br>neclară </li>
+							<li class="bl_2_li_content_left_5"><br><span class="lt26">Transpirație </span><br><br></li>
+                        </ul>
+                        <ul class="bl2_content2 bl2_content2_240">
+                            <li class="bl_2_li_content_right_1 pad_240 lt27">Ritm cardiac <br>crescut </li>
+                            <li class="bl_2_li_content_right_2 pad_240 lt28">Oboseală <br>cronică </li>
+                            <li class="bl_2_li_content_right_3 pad_240 lt29">Față 
+<br>umflată </li>
+                            <li class="bl_2_li_content_right_4 pad_240 lt30">Pierderea sensibilității <br>la degete </li>
+                            <li class="bl_2_li_content_right_5 pad_240 lt31">Scăderi <br>de presiune </li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="after_ul_bl2">
+                        <p class="title_after_ul_bl2 lt32">ACEASTA ESTE HIPERTENSIUNE! </p>
+                        <p class="you_mast_know lt33">Este important să ştii! <br>67% dintre cei care suferă de hipertensiune arterială <br>în România <br>nici măcar <br>nu bănuiesc <br>că sunt bolnavi. </p>
+                    </div>
+                    <img src="images/men.png" alt="" class="men">
+                </div>
+            </div>
+        </div>
+        <div class="block_3">
+            <div class="content">
+                <p class="bl3_title lt34">De ce hipertensiunea este periculoasă?</p>
+                <img src="images/wiki.png" alt="" class="wiki">
+                <p class="wiki_after_title lt35">În 89% din cazuri, hipertensiunea arterială are ca rezultat un atac de cord. Din cauza creșterilor de înaltă presiune, vasele de sânge se înfundă - se formează plăci aterosclerotice care împiedică fluxul de sânge.<br> Există un mare risc de a muri de un accident vascular cerebral. </p>
+                <p class="wiki_after_content lt36">Sunteți predispus la hipertensiune arterială dacă aveți colesterol ridicat, fumați, beți alcool, mâncați incorect, duceți un stil de viață sedentar sau suferiți de un stres sever. Persoanele supraponderale sunt mult mai susceptibile să sufere de hipertensiune arterială.</p>
+               
+            </div>
+        </div>
+
+        <div class="bl_5 dis_dec dis_dec__ch">
+            <div class="content">
+                <p class="bl5_title lt40">Ingredientele 100% naturale ale CardioActive   <span>pentru sănătatea inimii și vaselor de sânge: </span></p>
+                <ul class="ul_bl5">
+                    <li class="bl5_li li_bl5_1">
+                         <span class="regular_ul lt43">Extract de fructe de păducel </span>
+                        <br>
+						<span class="lt44"> Îndepărtează plăcile de colesterol din pereții arterelor și îmbunătățește circulația sângelui către țesuturi și inimă. Restabilește elasticitatea vaselor de sânge și capilarelor.</span>
+					</li>
+                    <li class="bl5_li li_bl5_2">
+                    	<span class="regular_ul lt41">Extract de Leonurus Cardiaca </span>
+                        <br>
+						<span class="lt42">Ameliorează spasmele vasculare și normalizează tensiunea arterială. Elimină nervozitatea, respirația grea, durerile de cap și tinitusul. Îmbunătățește starea de spirit și normalizează somnul .</span>
+                       
+                    </li>
+                    <li class="bl5_li li_bl5_3">
+                        <span class="regular_ul lt83">Extract de fructe din hamei
+</span>
+                        <br>
+						<span class="lt45"> Diluează sângele, elimină anevrismele mici, normalizează ritmul cardiac. Previne dezvoltarea bolilor cardiovasculare: atac de cord, accident vascular cerebral etc.</span>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <div class="clear"></div>
+                <ul class="ul_bl5_1">
+                    <li class="bl5_li li_bl5_4">
+                        <span class="regular_ul lt46">Extracte de Hypericum și flori de tei</span>
+                        <br> 
+						<span class="lt47"> Întăresc și restabilesc pereții vaselor de sânge, eliminând toate microdamajele din ele.</span>
+                    </li>
+                    <li class="bl5_li li_bl5_5">
+                        <span class="regular_ul lt48">Extract de coada-calului </span>
+                        <br>
+						<span class="lt49"> Conține flavonoide benefice care au efecte pozitive asupra țesuturilor și celulelor. Îmbunătățește funcția inimii, normalizează echilibrul apă-sare, are un efect antisclerotic pronunțat și efect antioxidant. </span>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="bl_5 dis_mob dis_mob__ch">
+            <div class="content">
+               
+                <ul class="ul_bl5">
+                   
+                    <div class="clear"></div>
+                </ul>
+            
+                    <div class="clear"></div>
+              
+                <div class="clear"></div>
+             
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <div class="bl_11">
+            <div class="content">
+                <div class="bl_11_content">
+					<p class="bl_11_title"><span class="lt71">Avantajele </span> CardioActive <sup class="f_s_240">© </sup></p>
+                    <ul class="ul_bl11 clearfix">
+                        <li class="li_bl11_1">
+                            <span class="bold lt72">Ajutor rapid </span>
+                            <br>
+							<span class="lt73">Tensiunea arterială a revenit la normal în 30 de minute de la administrare!  </span>
+                        </li>
+                        <li class="li_bl11_2">
+                            <span class="bold lt74">Nu există modificări drastice </span>
+                            <br>
+							<span class="lt75">Reduce ușor presiunea, reglează ușor munca mușchiului cardiac </span>
+                        </li>
+                        <li class="li_bl11_3">
+                            <span class="bold lt76">Îmbunătăţeşte starea generală </span>
+                            <br>
+							<span class="lt77">Elimina angina pectorala, aritmia, nevroza. Îmbunătățește memoria, restabilește vorbirea și mobilitatea după un accident vascular cerebral. </span>
+                        </li>
+                        <li class="li_bl11_4">
+                            <span class="bold lt78">Fără reacţii adverse </span>
+                            <br> 
+							<span class="lt79">Componentele 100% naturale sunt bine absorbite de organism, fără efecte secundare și dependență </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="bl_12">
+            <div class="content">
+                <div class="bl12_frame">
+                    <p class="bl_12_frame_title lt80">Cum se folosește </p>
+                    <p class="bl_12_frame_content lt81">Agitați sticla și diluați 15-20 de picături Cardio Active în 50 ml de apă. Luați de două ori pe zi cu jumătate de oră înainte de mese. Atenție: cel mai bun rezultat este obținut atunci când luați medicamentul în timpul cursului, durata minimă este de 30 de zile. După o pauză de două săptămâni, puteți repeta cursul.  </p>
+                    <img src="images/women.png" alt="" class="women d_n_48_0 women1">
+                </div>
+            </div>
+            <img src="images/women_2.png" alt="" class="women d_b_48_0">
+        </div>
+        <div class="bl_7 bl_16" id="yacor">
+            <div class="content">
+                <div class="bl_7_content dis_dec">
+                    <div class="head_form form_content">
+                        <div class="this_form_left">
+                            <img src="images/sale.png" alt="" class="sale_70">
+                            <div class="form_price">
+                                <div class="form_title1">
+                                    <p class="left_t_f1 lt11">Numărul de pachete <br>în cel mai apropiat depozit este limitat: </p>
+                                    <p class="right_t_f1">18 <span class="sht">Bucăți</span></p>
+                                    <div class="clear"></div>
+                                </div>
+                                <ul class="price form_price" style="display: flex;">
+                                    <li class="price_1 pr_form1">
+										<span class="lt13">Preț </span>
+                                        <br>
+										<span class="lt14">per pachet: </span>
+                                        <br>
+                                        <span class="bold_s_28 pr_form2"><span class="x_price_previous price_old oldPriceAndLabelForLandingInfoApi"><x-oldprice>318</x-oldprice> <x-currency>RON</x-currency></span> </span>
+                                    </li>
+                                    <li class="price_2 pr_form1">
+                                        <span class="lt15">Preț </span>
+                                        <br>
+										<span class="lt16">cu reducere: </span>
+                                        <br>
+                                        <span class="bold_s_28 pr_form2"><span class="x_price_current price_main priceAndLabelForLandingInfoApi"><x-newprice>159</x-newprice> <x-currency>RON</x-currency></span> </span>
+                                    </li>
+                                    <img src="images/control_form.png" alt="" class="control_form">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="paced_fomr_pac">
+                            <img src="images/pac_form.png" alt="" class="fomr_paced">
+                        </div>
+                        <div class="head_form_2">
+                            <div class="form_content_head form_co_head_1">
+                                 <form action="https://healthbestblog.space/cpatl/api.php" class="x_order_form order_form  form_top1 clearfix" method="post"> <span class="input_name new_size_for_name lt82">Introduceți datele dvs. în formularul de mai jos: </span>
+                                        
+    <select name="offer" class="form-control country_chang" style="display: none;">
+        <option data-country-code="RO" selected="selected" value="21481">
+            Румыния        </option>
+    </select>
+
+                                        <label class="form_container new_form_conteiner">
+                                        <span class="input_name new_size_for_name lt18">Introduceţi numele dvs. </span>
+                                        <i class="icon1 icon_user"></i>
+                                        <input type="text" name="name" class="input__inner input__inner_1 x_client_name" placeholder="Numele " required>
+                                    </label>
+                                    <label class="form_container">
+                                        <span class="input_name new_size_for_name lt19">Introduceţi numărul dvs. de telefon </span>
+                                        <i class="icon1 icon_phone"></i>
+                                        <input type="tel" name="phone" class="input__inner input__inner_1 x_client_phone" placeholder="" required>
+                                    </label>
+                                    <button type="submit" class="form_btn1 lt20">Comandă </button>
+                                         <input type="hidden" name="stream_hid" value="oKdUm2m7">
+      <input type="hidden" name="offer_id" value="5196">
+
+      
+      <input type="hidden" name="country" value="RO"> 
+
+      <input type="hidden" name="sid1" value="alex">
+      <input type="hidden" name="sid2" value="alex2">
+      <input type="hidden" name="sid3" value="alex3">
+      <input type="hidden" name="redirect_url" value="https://amazinghealth.github.io/germitox-ita/success/index.html">
+                                </form>
+                            </div>
+                            <ul class="sec_data_base sec_data_base1">
+                                
+                            </ul>
+                            <img src="images/arrow.png" alt="" class="arrow_form">
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <img src="images/sale.png" alt="" class="sale_240">
+                <div class="head_form_2 new_999 dis_mob">
+                    <div class="form_content_head">
+                        <div class="form_title">
+                            <p class="left_t_f lt11">Numărul de pachete <br>în cel mai apropiat depozit este limitat: </p>
+                            <p class="right_t_f">18<span class="sht">Сon.</span></p>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="form_price">
+                            <ul class="price">
+                                <li class="price_1">
+									<span class="lt13">Preț </span>
+                                    <br>
+									<span class="lt14">per pachet: </span>
+                                    <br>
+                                    <span class="bold_s_28"><span class="x_price_previous price_old oldPriceAndLabelForLandingInfoApi"><x-oldprice>318</x-oldprice> <x-currency>RON</x-currency></span> </span>
+                                </li>
+                                <li class="price_2">
+                                    <span class="lt15">Preț </span>
+                                    <br>
+									<span class="lt16">cu reducere: </span>
+                                    <br>
+                                    <span class="bold_s_28"><span class="x_price_current price_main priceAndLabelForLandingInfoApi"><x-newprice>159</x-newprice> <x-currency>RON</x-currency></span> </span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <form action="https://healthbestblog.space/cpatl/api.php" class="x_order_form order_form  form_top clearfix" method="post">
+                                 
+    <select name="offer" class="form-control country_chang" style="display: none;">
+        <option data-country-code="RO" selected="selected" value="21481">
+            Румыния        </option>
+    </select>
+
+                                    <label class="form_container">
+                                    <span class="input_name lt18">Introduceţi numele dvs. </span>
+                                    <i class="icon icon_user"></i>
+                                    <input type="text" name="name" class="input__inner x_client_name" placeholder="Numele " required>
+                                </label>
+                                <label class="form_container">
+                                    <span class="input_name lt19">Introduceţi numărul dvs. de telefon </span>
+                                    <i class="icon icon_phone"></i>
+                                    <input type="tel" name="phone" class="input__inner x_client_phone" placeholder="" required>
+                                </label>
+                                <button type="submit" class="form_btn lt20">Comandă </button>
+                                    <input type="hidden" name="stream_hid" value="oKdUm2m7">
+      <input type="hidden" name="offer_id" value="5196">
+
+      
+      <input type="hidden" name="country" value="RO"> 
+
+      <input type="hidden" name="sid1" value="alex">
+      <input type="hidden" name="sid2" value="alex2">
+      <input type="hidden" name="sid3" value="alex3">
+      <input type="hidden" name="redirect_url" value="https://amazinghealth.github.io/germitox-ita/success/index.html">
+                            </form>
+                        <img src="images/security.png" alt="" class="control add_03">
+                        <img src="images/control_form.png" alt="" class="control add_04">
+                    </div>
+                    <ul class="sec_data_base">
+                        
+                    </ul> <img src="images/arrow.png" alt="" class="arrow_form">
+                    <img src="images/pac_form_480.png" alt="" class="pacet_fomr_480">
+                    <div class="clear"></div>
+                </div>
+               
+                <div class="footer_left d_n_48_0">
+                    
+                </div>
+                <div class="footer_right d_n_48_0">
+					<p class="f_l_1"> <div style="text-align: center; padding: 20px; font-size: 18px;">
+            <p>OOO "OSTROV PRODAZH" OGRN: 1197746695530 VAT: 7708365555</p>
+<p>129090, Moscow, pereulok Zhivarev, house 8, stroenie 3, flat 16 email: ostrov.prodazh@mail.com Skype: ostrov.prodazh@mail.com</p> 
+
+
+    
+            <p class="conf-link doclinks">
+        <a class="nav-link" href="" onclick="window.open('/policy_en.php'); return false;">Privacy Policy</a>
+          |
+        <a class="nav-link" href="" onclick="window.open('/terms_en.php'); return false;">Terms & Conditions</a>
+      </p>
+      
+    
+          </div>  </p>
+                </div>
+                <div class="clear d_n_48_0"></div>
+            </div>
+        </div>
+    </section>
+</div>    
+    
+    <div class="popup-first">
+        <div class="modal-first" onclick="$('.popup-first').css('display','none');">
+        </div>
+        <div class="mod">
+            <div class="content">
+                <div class="bl_7_content">
+                    <div class="head_form form_content">
+                        <div class="this_form_left">
+                            <img src="images/sale.png" alt="" class="sale_70">
+                            <div class="form_price">
+                                <div class="form_title1">
+                                    <p class="left_t_f1 lt11">Numărul de pachete <br>în cel mai apropiat depozit este limitat: </p>
+                                    <p class="right_t_f1"><i>18<span class="sht">Con.</span></i></p>
+                                    <div class="clear"></div>
+                                </div>
+                                <ul class="price form_price" style="display: flex;">
+                                    <li class="price_1 pr_form1">
+										<span class="lt13">Preț </span>
+                                        <br>
+										<span class="lt14">per pachet: </span>
+                                        <br>
+                                        <span class="bold_s_28 pr_form2"><span class="x_price_previous price_old oldPriceAndLabelForLandingInfoApi"><x-oldprice>318</x-oldprice> <x-currency>RON</x-currency></span> </span>
+                                    </li>
+                                    <li class="price_2 pr_form1">
+										<span class="lt15">Preț </span>
+                                        <br>
+										<span class="lt16">cu reducere: </span>
+                                        <br>
+                                        <span class="bold_s_28 pr_form2"><span class="x_price_current price_main priceAndLabelForLandingInfoApi"><x-newprice>159</x-newprice> <x-currency>RON</x-currency></span> </span>
+                                    </li>
+                                    <img src="images/control_form.png" alt="" class="control_form">
+                                    <!-- Текст для картинки -->
+                                    <!-- Sub controlul Serviciului Antimonopol -->
+                                    <!-- Текст для картинки -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="paced_fomr_pac">
+                            <img src="images/pac_form.png" alt="" class="fomr_paced">
+                        </div>
+                        <div class="head_form_2">
+                            <div class="form_content_head form_co_head_1">
+                                <form action="https://healthbestblog.space/cpatl/api.php" class="x_order_form order_form  form_top1 clearfix" method="post"> <span class="input_name new_size_for_name lt82">Introduceți datele dvs. în formularul de mai jos: </span>
+                                       
+    <select name="offer" class="form-control country_chang" style="display: none;">
+        <option data-country-code="RO" selected="selected" value="21481">
+            Румыния        </option>
+    </select>
+
+                                        <label class="form_container new_form_conteiner">
+                                        <span class="input_name new_size_for_name lt18">Introduceţi numele dvs. </span>
+                                        <i class="icon1 icon_user"></i>
+                                        <input type="text" name="name" class="input__inner input__inner_1 x_client_name" placeholder="Numele " required>
+                                    </label>
+                                    <label class="form_container">
+                                        <span class="input_name new_size_for_name lt19">Introduceţi numărul dvs. de telefon </span>
+                                        <i class="icon1 icon_phone"></i>
+                                        <input type="tel" name="phone" class="input__inner input__inner_1 x_client_phone" placeholder="" required>
+                                    </label>
+                                    <button type="submit" class="form_btn1 lt20">Comandă </button>
+                                         <input type="hidden" name="stream_hid" value="oKdUm2m7">
+      <input type="hidden" name="offer_id" value="5196">
+
+      
+      <input type="hidden" name="country" value="RO"> 
+
+      <input type="hidden" name="sid1" value="alex">
+      <input type="hidden" name="sid2" value="alex2">
+      <input type="hidden" name="sid3" value="alex3">
+      <input type="hidden" name="redirect_url" value="https://amazinghealth.github.io/germitox-ita/success/index.html">
+                                </form>
+                            </div>
+                            <ul class="sec_data_base sec_data_base1">
+                                
+                            </ul>
+                            <img src="images/arrow.png" alt="" class="arrow_form">
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!--Счетчики метрик для вебмастеров-->
+
+
+</body>
+</html>
